@@ -50,7 +50,7 @@ body {
 /* src/index.css or global.css */
 
 .prose code {
-  @apply text-gray-400 block w-fit rounded;
+  @apply text-gray-300 block w-fit rounded;
 }
 
 .prose pre code {
@@ -59,16 +59,16 @@ body {
 
 /* src/index.css or global.css */
 
-.json-key {
-  color: #60a5fa; /* Tailwind blue-400 */
+/* .json-key {
+  color: #60a5fa;
 }
 
 .json-value {
-  color: #34d399; /* Tailwind green-400 */
+  color: #34d399; 
 }
 
 .json-string {
-  color: #fbbf24; /* Tailwind yellow-400 */
-}
+  color: #fbbf24; 
+} */
 
 /* Add more styles as needed */

@@ -14,6 +14,8 @@ import { MdFileDownload } from "react-icons/md";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import type { Dataset, Message, DataCard } from "../../data";
+import FolderStructure from "@/components/FolderTree";
+import Readme from "@/components/Readme";
 
 const metadataItems = [
   { label: "Modalities:", items: ["Text"] },
@@ -34,8 +36,8 @@ const tabs = [
 const DataCardPage = () => {
   const [activeTab, setActiveTab] = useState("Dataset Cards");
   const [data, setData] = useState<Dataset>({} as Dataset);
-  const { slug } = useParams<{ slug: string }>();
-  const dataName = slug.replace(/%20/g, " ");
+  const { owner } = useParams<{ owner: string }>();
+  const dataName = owner.replace(/%20/g, " ");
   const router = useRouter();
 
   console.log(dataName);
@@ -301,7 +303,7 @@ const DataCardPage = () => {
                     </section>
 
                     <section className="flex flex-col items-start text-sm rounded-none text-stone-300">
-                      <h2 className="text-lg font-medium text-white">
+                      {/* <h2 className="text-lg font-medium text-white">
                         Citation
                       </h2>
                       <p className="mt-2.5 leading-6">
@@ -327,6 +329,9 @@ const DataCardPage = () => {
                             className="object-contain shrink-0 self-start mt-1.5 rounded aspect-[1.06] w-[18px]"
                           />
                         </button>
+                      </div> */}
+                      <div className="w-[98%] mx-auto">
+                        <Readme />
                       </div>
                     </section>
                   </div>
@@ -522,7 +527,7 @@ const DataCardPage = () => {
                 </div>
               </section>
               <div className="flex flex-col text-base leading-none rounded-none text-neutral-400">
-                <div className="flex flex-col pb-5 w-full rounded-t-xl border border-solid bg-zinc-950 border-zinc-800 max-md:max-w-full">
+                <div className="flex flex-col pb-5 w-full rounded-t-xl border border-solid h-fit bg-zinc-950 border-zinc-800 max-md:max-w-full">
                   <header className="flex flex-wrap gap-5 justify-between px-5 py-4 w-full font-semibold rounded-t-xl border border-solid bg-zinc-800 border-zinc-800 max-md:max-w-full">
                     <div className="flex gap-5">
                       <div className="flex shrink-0 self-start bg-violet-500 rounded-full h-[13px] w-[13px]" />
@@ -535,25 +540,7 @@ const DataCardPage = () => {
                   </header>
                   <section className="flex flex-wrap gap-5 justify-between items-center self-center mt-3.5 w-full max-w-[1450px] max-md:max-w-full">
                     <ul className="w-full flex flex-col self-stretch my-auto whitespace-nowrap list-none p-0">
-                      {datasets.map((file, index) => (
-                        <li className="w-full flex justify-between items-center gap-4 py-2 px-4 mt-2 border-b border-zinc-800 first:mt-0">
-                          <div className="flex justify-start gap-2">
-                            <CiFileOn />
-                            <div>github.git</div>
-                          </div>
-                          <div className="flex gap-2">
-                            <div>2.47 kB</div>
-                            <img
-                              loading="lazy"
-                              src="https://cdn.builder.io/api/v1/image/assets/TEMP/4fdcfae6bb42aced8c44dbcabfc6b4f886b1b213842a10e5eb9f01c1647cf1d7?placeholderIfAbsent=true&apiKey=3ffd321d22914a748ca8bbca39c4d0b3"
-                              className="object-contain shrink-0 w-5 aspect-[0.87]"
-                              alt=""
-                            />
-                          </div>
-                          <div>Upload 2 files</div>
-                          <div className="">15 days ago</div>
-                        </li>
-                      ))}
+                      <FolderStructure />
                     </ul>
                   </section>
                 </div>

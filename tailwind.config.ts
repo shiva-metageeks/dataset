@@ -16,15 +16,15 @@ const config: Config = {
       typography: (theme: any) => ({
         dark: {
           css: {
-            color: theme("colors.gray.300"),
-            h1: {
-              color: theme("colors.white"),
-            },
-            h2: {
+            color: theme("colors.gray.400"),
+            "h1, h2, h3, h4, h5, h6": {
               color: theme("colors.white"),
             },
             p: {
               color: theme("colors.gray.400"),
+            },
+            strong: {
+              color: theme("colors.gray.300"),
             },
             code: {
               color: theme("colors.pink.500"),
@@ -42,15 +42,15 @@ const config: Config = {
               color: theme("colors.blue.400"),
               textDecoration: "underline",
             },
-            "code.json .json-key": {
-              color: theme("colors.blue.400"),
-            },
-            "code.json .json-value": {
-              color: theme("colors.green.400"),
-            },
-            "code.json .json-string": {
-              color: theme("colors.yellow.400"),
-            },
+            // "code.json .json-key": {
+            //   color: theme("colors.blue.400"),
+            // },
+            // "code.json .json-value": {
+            //   color: theme("colors.green.400"),
+            // },
+            // "code.json .json-string": {
+            //   color: theme("colors.yellow.400"),
+            // },
           },
         },
       }),
